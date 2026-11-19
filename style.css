@@ -1,15 +1,22 @@
 :root{
-  --ink:#222; --muted:#6f777d; --line:#e5e5e5; --accent:#1F3864; --bg:#fff; --side:#fafafa;
+  --ink:#222; --muted:#6f777d; --line:#e5e5e5; --accent:#1F3864; --bg:#fff; --soft:#3a3a3a;
+  --avatar:#eee; --head:rgba(255,255,255,.96);
 }
+[data-theme="dark"]{
+  --ink:#e6e6e6; --muted:#9aa3a8; --line:#33373b; --accent:#8fb3e8; --bg:#17191c; --soft:#c9cdd1;
+  --avatar:#2a2d31; --head:rgba(23,25,28,.96);
+}
+html{color-scheme:light}
+[data-theme="dark"]{color-scheme:dark}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);
+body{margin:0;transition:background .2s,color .2s;background:var(--bg);color:var(--ink);
   font:16px/1.65 -apple-system,"Segoe UI",system-ui,"Helvetica Neue",Arial,sans-serif}
 a{color:var(--accent);text-decoration:none}
 a:hover{text-decoration:underline}
 
 /* top navigation */
-.masthead{border-bottom:1px solid var(--line);background:#fff;position:sticky;top:0;z-index:10}
+.masthead{border-bottom:1px solid var(--line);background:var(--head);position:sticky;top:0;z-index:10}
 .masthead nav{max-width:1100px;margin:0 auto;padding:0 24px;height:58px;display:flex;align-items:center;gap:28px}
 .masthead .site-title{font-weight:700;color:var(--ink);margin-right:auto;white-space:nowrap}
 .masthead a.nav{color:var(--muted);font-size:15px;white-space:nowrap;padding:4px 0;border-bottom:2px solid transparent}
@@ -19,7 +26,7 @@ a:hover{text-decoration:underline}
 /* page layout: profile sidebar + content */
 .layout{max-width:1100px;margin:0 auto;padding:40px 24px 20px;display:grid;grid-template-columns:250px 1fr;gap:56px}
 .sidebar{position:sticky;top:98px;align-self:start}
-.avatar{position:relative;width:150px;height:150px;border-radius:50%;overflow:hidden;background:#eee;
+.avatar{position:relative;width:150px;height:150px;border-radius:50%;overflow:hidden;background:var(--avatar);
   display:grid;place-items:center;color:#999;font-size:40px;font-weight:500;margin-bottom:16px}
 .avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .sidebar h1{font-size:21px;margin:0 0 4px;line-height:1.3}
@@ -45,7 +52,7 @@ a:hover{text-decoration:underline}
 .entry h3{margin:0;font-size:16px}
 .entry .org{color:var(--muted);font-weight:400}
 .entry .date{color:var(--muted);font-size:14px;white-space:nowrap}
-.entry .desc{grid-column:1/-1;font-size:15px;color:#444}
+.entry .desc{grid-column:1/-1;font-size:15px;color:var(--soft)}
 .entry .desc em{color:var(--muted)}
 .entry ul{margin:4px 0 0}
 
@@ -64,3 +71,17 @@ footer{max-width:1100px;margin:30px auto 0;padding:24px;border-top:1px solid var
   .masthead nav{gap:18px}
   .entry{grid-template-columns:1fr}
 }
+
+/* theme toggle */
+.theme-toggle{background:none;border:1px solid var(--line);border-radius:50%;width:34px;height:34px;
+  display:grid;place-items:center;cursor:pointer;color:var(--ink);padding:0;flex:none}
+.theme-toggle:hover{border-color:var(--muted)}
+.theme-toggle svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.theme-toggle .sun{display:none}
+[data-theme="dark"] .theme-toggle .sun{display:block}
+[data-theme="dark"] .theme-toggle .moon{display:none}
+
+/* group logo */
+.group-logo{display:inline-block;margin-top:18px;padding:8px 12px;background:#fff;border-radius:8px;border:1px solid var(--line)}
+.group-logo img{display:block;width:160px;height:auto}
+@media (max-width:820px){ .group-logo{grid-column:1/-1;justify-self:start;margin-top:10px} .group-logo img{width:130px} }
