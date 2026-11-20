@@ -90,27 +90,25 @@ footer{max-width:1100px;margin:30px auto 0;padding:24px;border-top:1px solid var
 .content ul.pubs{list-style:none;padding-left:0}
 .pubs li{margin:0 0 16px;padding-left:14px;border-left:2px solid var(--line);font-size:15px}
 
-/* intro card */
-.hero{position:relative;overflow:hidden;border-radius:14px;padding:26px 28px 24px;margin:0 0 30px;color:#fff;
-  background:linear-gradient(135deg,var(--teal) 0%,var(--teal-dark) 100%)}
-.hero::after{content:"";position:absolute;right:-60px;bottom:-80px;width:240px;height:240px;border-radius:50%;
-  border:28px solid rgba(255,255,255,.07)}
-.hero .kicker{margin:0 0 8px;font-size:12px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:#9fd6d8}
-.hero .headline{margin:0 0 16px;font-size:24px;line-height:1.3;font-weight:700;max-width:520px}
-.content .hero ul.chips{list-style:none;padding:0;margin:0 0 18px;display:flex;flex-wrap:wrap;gap:8px}
-.hero .chips li{margin:0;font-size:13px;padding:4px 11px;border-radius:999px;background:rgba(255,255,255,.12);
-  border:1px solid rgba(255,255,255,.22)}
-.hero-actions{display:flex;flex-wrap:wrap;gap:10px;position:relative;z-index:1}
-.btn{display:inline-block;font-size:14px;font-weight:600;padding:7px 14px;border-radius:6px;color:#fff;
-  border:1px solid rgba(255,255,255,.55)}
-.btn:hover{background:rgba(255,255,255,.12);text-decoration:none}
-.btn.primary{background:#fff;color:var(--teal-dark);border-color:#fff}
-.btn.primary:hover{background:#e6f2f2}
+/* intro: light panel with teal accent rule */
+.hero{margin:0 0 30px;padding:4px 0 4px 22px;border-left:4px solid var(--accent)}
+.hero .headline{margin:0 0 14px;font-family:Georgia,"Times New Roman",serif;font-style:italic;font-size:23px;line-height:1.35;
+  font-weight:400;color:var(--accent);max-width:540px}
+.content .hero ul.chips{list-style:none;padding:0;margin:0 0 16px;display:flex;flex-wrap:wrap;gap:6px 14px}
+.hero .chips li{margin:0;font-size:13.5px;color:var(--muted,inherit)}
+.hero .chips li::before{content:"";display:inline-block;width:6px;height:6px;margin:0 7px 1px 0;border-radius:1px;
+  background:var(--accent);transform:rotate(45deg)}
+.hero-actions{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center}
+.btn{display:inline-block;font-size:14px;font-weight:600;color:var(--accent);border-bottom:1px solid transparent}
+.btn:hover{border-bottom-color:var(--accent);text-decoration:none}
+.btn.primary{padding:7px 16px;border-radius:4px;background:var(--accent);color:#fff;border:none}
+[data-theme="dark"] .btn.primary{color:#0b1f20}
+.btn.primary:hover{filter:brightness(1.08)}
 
 /* photo ring */
 .avatar{box-shadow:0 0 0 4px var(--bg),0 0 0 6px var(--teal)}
 .download{border-color:var(--teal);color:var(--teal)}
 .download:hover{background:var(--teal);color:#fff}
-@media (max-width:600px){.hero{padding:20px}.hero .headline{font-size:20px}}
+@media (max-width:600px){.hero{padding-left:16px}.hero .headline{font-size:20px}}
 .sidebar li.trams-item{align-items:center}
 .trams-icon{flex:none;height:18px;width:auto;padding:2px 4px;background:#fff;border-radius:4px;border:1px solid var(--line)}
